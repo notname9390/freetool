@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover 60+ free alternatives to paid tools. Viral, ad-friendly, and Gen Z–optimized.">
+  <title>freetool.pages.dev – Stop Paying. Use These Free Tools Instead 💸</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💸</text></svg>">
+  <style>
+    :root {
+      --bg: #fafbfc;
+      --card-bg: #fff;
+      --text: #18181b;
+      --subtext: #555;
+      --accent: #4f46e5;
+      --shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
+      --radius: 1.1em;
+      --pill-bg: #f3f4f6;
+      --pill-text: #333;
+      --header-bg: #fff;
+      --footer-bg: #fff;
+      --like: #e11d48;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+      --bg: #18181b;
+      --card-bg: #232329;
+        --text: #fafbfc;
+        --subtext: #aaa;
+        --accent: #818cf8;
+        --shadow: 0 2px 12px 0 rgba(0,0,0,0.25);
+        --pill-bg: #232329;
+        --pill-text: #fafbfc;
+        --header-bg: #18181b;
+        --footer-bg: #18181b;
+      }
+    }
+    html { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); }
+    body { margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--header-bg); box-shadow: var(--shadow);
+      padding: 1.1em 0 0.7em 0; text-align: center;
+    }
+    .title { font-size: 1.35em; font-weight: 700; letter-spacing: -0.01em; }
+    .subline { color: var(--subtext); font-size: 1em; margin-top: 0.2em; }
+    .views { font-size: 0.98em; color: var(--accent); margin-top: 0.5em; }
+    .top10-section { margin: 1.2em auto 0.5em auto; max-width: 600px; }
+    .top10-title { font-weight: 600; font-size: 1.1em; margin-bottom: 0.5em; }
+    .top10-list { display: flex; flex-wrap: wrap; gap: 0.5em; }
+    .top10-card { background: var(--card-bg); box-shadow: var(--shadow); border-radius: var(--radius); padding: 0.7em 1em; font-size: 0.98em; display: flex; align-items: center; gap: 0.5em; }
+    .filters { display: flex; flex-wrap: wrap; gap: 0.5em; margin: 1em auto 0.5em auto; max-width: 600px; justify-content: center; }
+    .filter-pill { background: var(--pill-bg); color: var(--pill-text); border: none; border-radius: 999px; padding: 0.4em 1em; font-size: 0.98em; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .filter-pill.active, .filter-pill:focus { background: var(--accent); color: #fff; outline: none; }
+    .search-bar-wrap { display: flex; justify-content: center; margin: 1.2em 0 0.5em 0; }
+    .search-bar { width: 100%; max-width: 420px; padding: 0.7em 1em; border-radius: var(--radius); border: 1px solid #e5e7eb; background: var(--card-bg); color: var(--text); font-size: 1em; box-shadow: var(--shadow); outline: none; }
+    main { flex: 1; display: flex; flex-direction: column; align-items: center; }
+    .tools-grid { display: grid; grid-template-columns: 1fr; gap: 1.2em; width: 100%; max-width: 700px; margin: 1.2em auto 2.5em auto; }
+    @media (min-width: 500px) { .tools-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .tools-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .tool-card {
+      background: var(--card-bg); box-shadow: var(--shadow); border-radius: var(--radius);
+      padding: 1.1em 1em 1em 1em; display: flex; flex-direction: column; gap: 0.7em;
+      position: relative; transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .tool-card:hover { transform: translateY(-2px) scale(1.012); box-shadow: 0 4px 18px 0 rgba(0,0,0,0.10); }
+    .tool-row { display: flex; align-items: center; gap: 0.5em; font-size: 1.05em; }
+    .tool-paid { color: #eab308; font-weight: 500; }
+    .tool-free { color: #22c55e; font-weight: 600; }
+    .tool-desc { color: var(--subtext); font-size: 0.98em; margin: 0.2em 0 0.1em 0; }
+    .tool-tags { display: flex; flex-wrap: wrap; gap: 0.3em; margin-top: 0.2em; }
+    .tag-pill { background: var(--pill-bg); color: var(--pill-text); border-radius: 999px; padding: 0.18em 0.7em; font-size: 0.92em; }
+    .tool-actions { display: flex; gap: 0.5em; margin-top: 0.5em; }
+    .btn { border: none; border-radius: 999px; padding: 0.45em 1.1em; font-size: 0.98em; font-weight: 500; cursor: pointer; background: var(--accent); color: #fff; transition: background 0.18s, box-shadow 0.18s; box-shadow: 0 1px 4px 0 rgba(0,0,0,0.07); }
+    .btn:hover, .btn:focus { background: #6366f1; outline: none; }
+    .btn-secondary { background: var(--pill-bg); color: var(--accent); border: 1px solid var(--accent); }
+    .btn-secondary:hover, .btn-secondary:focus { background: var(--accent); color: #fff; }
+    .like-btn { background: none; border: none; cursor: pointer; font-size: 1.2em; margin-left: auto; color: var(--subtext); transition: color 0.18s; }
+    .like-btn.liked { color: var(--like); }
+    .copy-site-btn { margin: 0.5em auto 0.5em auto; display: flex; align-items: center; gap: 0.4em; background: var(--accent); color: #fff; border: none; border-radius: 999px; padding: 0.45em 1.1em; font-size: 0.98em; font-weight: 500; cursor: pointer; box-shadow: 0 1px 4px 0 rgba(0,0,0,0.07); }
+    .copy-site-btn:hover, .copy-site-btn:focus { background: #6366f1; }
+    .share-row { display: flex; gap: 0.7em; justify-content: center; margin: 0.7em 0 0.2em 0; }
+    .share-btn { background: var(--pill-bg); color: var(--accent); border: none; border-radius: 999px; padding: 0.4em 1em; font-size: 1em; cursor: pointer; transition: background 0.18s, color 0.18s; }
+    .share-btn:hover, .share-btn:focus { background: var(--accent); color: #fff; }
+    .email-optin { text-align: center; margin: 1.2em 0 0.5em 0; color: var(--subtext); font-size: 1em; }
+    .email-optin a { color: var(--accent); text-decoration: underline; }
+    footer {
+      position: sticky; bottom: 0; z-index: 10;
+      background: var(--footer-bg); box-shadow: var(--shadow);
+      padding: 0.9em 0 0.7em 0; text-align: center; font-size: 1.05em;
+      color: var(--accent);
+    }
+    .footer-link { color: var(--accent); text-decoration: underline; font-weight: 500; }
+    @media (max-width: 600px) {
+      .tools-grid { grid-template-columns: 1fr; }
+      .top10-list { flex-direction: column; gap: 0.7em; }
+    }
+    .student-nav-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.45em 1.1em;
+      font-size: 1em;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 1px 4px 0 rgba(0,0,0,0.07);
+      transition: background 0.18s;
+    }
+    .student-nav-btn:hover, .student-nav-btn:focus {
+      background: #6366f1;
+    }
+    .student-section {
+      background: linear-gradient(120deg, #e0e7ff 0%, #f8fafc 100%);
+      border-radius: 1.2em;
+      margin: 2.5em auto 1.5em auto;
+      padding: 2em 0.5em 1.5em 0.5em;
+      max-width: 700px;
+      box-shadow: 0 2px 16px 0 rgba(99,102,241,0.07);
+    }
+    @media (prefers-color-scheme: dark) {
+      .student-section {
+        background: linear-gradient(120deg, #232329 0%, #1e293b 100%);
+      }
+    }
+    .student-header { text-align: center; margin-bottom: 1.5em; }
+    .student-title { font-size: 1.25em; font-weight: 700; margin-bottom: 0.2em; }
+    .student-sub { color: var(--subtext); font-size: 1em; }
+    .student-categories { display: flex; flex-direction: column; gap: 2em; }
+    .student-cat-block { }
+    .student-cat-title { font-size: 1.1em; font-weight: 600; margin-bottom: 0.7em; color: var(--accent); }
+    .student-cat-cards { display: flex; flex-direction: column; gap: 1em; }
+    .student-tool-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1em 1em 0.8em 1em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4em;
+      transition: box-shadow 0.13s, transform 0.13s;
+    }
+    .student-tool-card:hover { box-shadow: 0 4px 18px 0 rgba(99,102,241,0.13); transform: translateY(-2px) scale(1.012); }
+    .student-tool-name { font-weight: 600; font-size: 1.05em; }
+    .student-tool-desc { color: var(--subtext); font-size: 0.97em; }
+    .student-tool-tags { display: flex; gap: 0.4em; flex-wrap: wrap; margin-top: 0.1em; }
+    .student-tag { background: var(--pill-bg); color: var(--pill-text); border-radius: 999px; padding: 0.15em 0.7em; font-size: 0.91em; }
+    .student-tool-actions { display: flex; gap: 0.5em; margin-top: 0.4em; }
+    .student-cta { text-align: center; margin-top: 2em; color: var(--accent); font-size: 1.05em; }
+    @media (max-width: 600px) {
+      .student-section { padding: 1.2em 0.2em 1em 0.2em; }
+      .student-cat-cards { gap: 0.7em; }
+    }
+    .top-nav {
+      display: flex;
+      gap: 0.5em;
+      position: absolute;
+      top: 1.1em;
+      right: 1em;
+      z-index: 20;
+    }
+    @media (max-width: 600px) {
+      .top-nav { top: 0.7em; right: 0.5em; }
+    }
+    .nav-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.45em 1.1em;
+      font-size: 1em;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 1px 4px 0 rgba(0,0,0,0.07);
+      transition: background 0.18s;
+    }
+    .nav-btn:hover, .nav-btn:focus { background: #6366f1; }
+    .modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(30, 41, 59, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      animation: fadeIn 0.25s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .modal-content {
+      background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+      border-radius: 1.5em;
+      box-shadow: 0 8px 32px 0 rgba(99,102,241,0.18);
+      padding: 2em 1em 1.5em 1em;
+      max-width: 480px;
+      width: 98vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      border: 2px solid #a5b4fc;
+      animation: fadeIn 0.25s;
+    }
+    @media (prefers-color-scheme: dark) {
+      .modal-content {
+        background: linear-gradient(135deg, #232329 0%, #1e293b 100%);
+        border: 2px solid #6366f1;
+      }
+    }
+    .modal-title {
+      font-size: 1.15em;
+      font-weight: 700;
+      margin-bottom: 1em;
+      color: var(--accent);
+      text-align: center;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      background: none;
+      border: none;
+      font-size: 1.5em;
+      color: var(--accent);
+      cursor: pointer;
+      z-index: 10;
+      transition: color 0.18s;
+    }
+    .modal-close:hover { color: #e11d48; }
+    .top10-list-modal {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1em;
+      width: 100%;
+    }
+    .top10-modal-card {
+      background: var(--card-bg);
+      border-radius: 1em;
+      box-shadow: 0 2px 12px 0 rgba(99,102,241,0.10);
+      padding: 1em 1em 0.8em 1em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4em;
+      border-left: 4px solid var(--accent);
+      transition: box-shadow 0.13s, transform 0.13s;
+    }
+    .top10-modal-card:hover { box-shadow: 0 4px 18px 0 rgba(99,102,241,0.13); transform: translateY(-2px) scale(1.012); }
+    .top10-modal-row { font-weight: 600; font-size: 1.05em; color: var(--accent); }
+    .top10-modal-desc { color: var(--subtext); font-size: 0.97em; }
+    .top10-modal-actions { margin-top: 0.3em; }
+    .top10-modal-actions .btn { font-size: 0.97em; padding: 0.35em 1em; }
+    /* Student mode upgrades */
+    .student-section {
+      animation: fadeIn 0.3s;
+    }
+    .student-section.student-mode {
+      background: linear-gradient(120deg, #e0e7ff 0%, #f0f9ff 100%);
+      box-shadow: 0 4px 32px 0 rgba(99,102,241,0.13);
+      border: 2px solid #a5b4fc;
+      min-height: 80vh;
+      animation: fadeIn 0.3s;
+    }
+    @media (prefers-color-scheme: dark) {
+      .student-section.student-mode {
+        background: linear-gradient(120deg, #232329 0%, #1e293b 100%);
+        border: 2px solid #6366f1;
+      }
+    }
+    .student-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: linear-gradient(90deg, #e0e7ff 60%, #f0f9ff 100%);
+      border-radius: 1em 1em 0 0;
+      padding: 1.2em 0.5em 1em 0.5em;
+      margin-bottom: 1.5em;
+      box-shadow: 0 2px 12px 0 rgba(99,102,241,0.07);
+    }
+    @media (prefers-color-scheme: dark) {
+      .student-header {
+        background: linear-gradient(90deg, #232329 60%, #1e293b 100%);
+      }
+    }
+    .student-title { font-size: 1.35em; font-weight: 800; margin-bottom: 0.2em; letter-spacing: -0.01em; color: var(--accent); }
+    .student-sub { color: var(--subtext); font-size: 1.05em; }
+    .student-categories { display: flex; flex-direction: column; gap: 2.2em; }
+    .student-cat-block {
+      background: var(--pill-bg);
+      border-radius: 1em;
+      padding: 1.1em 0.7em 0.7em 0.7em;
+      box-shadow: 0 1px 8px 0 rgba(99,102,241,0.06);
+      margin-bottom: 0.5em;
+    }
+    .student-cat-title { font-size: 1.13em; font-weight: 700; margin-bottom: 0.7em; color: var(--accent); letter-spacing: -0.01em; }
+    .student-cat-cards { display: flex; flex-direction: column; gap: 1.1em; }
+    .student-tool-card {
+      background: var(--card-bg);
+      border-radius: 1em;
+      box-shadow: 0 2px 12px 0 rgba(99,102,241,0.10);
+      padding: 1.1em 1em 0.9em 1em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4em;
+      border-left: 4px solid var(--accent);
+      transition: box-shadow 0.13s, transform 0.13s;
+    }
+    .student-tool-card:hover { box-shadow: 0 4px 18px 0 rgba(99,102,241,0.13); transform: translateY(-2px) scale(1.012); }
+    .student-tool-name { font-weight: 700; font-size: 1.08em; color: var(--accent); }
+    .student-tool-desc { color: var(--subtext); font-size: 0.98em; }
+    .student-tool-tags { display: flex; gap: 0.4em; flex-wrap: wrap; margin-top: 0.1em; }
+    .student-tag { background: var(--pill-bg); color: var(--pill-text); border-radius: 999px; padding: 0.15em 0.7em; font-size: 0.91em; }
+    .student-tool-actions { display: flex; gap: 0.5em; margin-top: 0.4em; }
+    .student-cta { text-align: center; margin-top: 2em; color: var(--accent); font-size: 1.05em; }
+    .back-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.5em 1.2em;
+      font-size: 1.05em;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 1.2em;
+      position: static;
+      left: unset;
+      top: unset;
+      box-shadow: 0 1px 4px 0 rgba(0,0,0,0.07);
+      transition: background 0.18s;
+    }
+    .back-btn:hover, .back-btn:focus { background: #6366f1; color: #fff; }
+    @media (max-width: 600px) {
+      .modal-content { padding: 1.2em 0.2em 1em 0.2em; }
+      .student-section { padding: 1.2em 0.2em 1em 0.2em; }
+      .student-cat-cards { gap: 0.7em; }
+    }
+    /* Hide main content in student mode */
+    .hide { display: none !important; }
+    .student-pair-table {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      margin-bottom: 0.5em;
+    }
+    .student-pair-row {
+      display: flex;
+      align-items: center;
+      gap: 0.7em;
+      background: var(--card-bg);
+      border-radius: 0.7em;
+      box-shadow: 0 1px 4px 0 rgba(99,102,241,0.06);
+      padding: 0.7em 0.7em;
+      transition: box-shadow 0.13s, transform 0.13s;
+    }
+    .student-pair-row:hover {
+      box-shadow: 0 4px 18px 0 rgba(99,102,241,0.13);
+      transform: translateY(-2px) scale(1.012);
+    }
+    .student-pair-paid {
+      flex: 1 1 40%;
+      color: #e11d48;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+      font-size: 1em;
+    }
+    .student-pair-free {
+      flex: 1 1 60%;
+      color: #22c55e;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+      font-size: 1em;
+    }
+    .student-link {
+      color: var(--accent);
+      text-decoration: underline;
+      font-weight: 600;
+      transition: color 0.18s;
+    }
+    .student-link:hover, .student-link:focus {
+      color: #6366f1;
+    }
+    .paid-icon { font-size: 1.1em; margin-right: 0.1em; }
+    .free-icon { font-size: 1.1em; margin-right: 0.1em; }
+    @media (max-width: 600px) {
+      .student-pair-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2em;
+        padding: 0.7em 0.5em;
+      }
+      .student-pair-paid, .student-pair-free {
+        font-size: 0.98em;
+      }
+    }
+    .student-dev-table {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      margin-bottom: 0.5em;
+    }
+    .student-dev-row {
+      display: flex;
+      flex-direction: column;
+      background: var(--card-bg);
+      border-radius: 0.7em;
+      box-shadow: 0 1px 4px 0 rgba(99,102,241,0.06);
+      padding: 0.7em 0.7em;
+      transition: box-shadow 0.13s, transform 0.13s;
+      gap: 0.2em;
+    }
+    .student-dev-row:hover {
+      box-shadow: 0 4px 18px 0 rgba(99,102,241,0.13);
+      transform: translateY(-2px) scale(1.012);
+    }
+    .student-dev-main {
+      display: flex;
+      align-items: center;
+      gap: 0.7em;
+      font-size: 1em;
+      font-weight: 600;
+    }
+    .student-dev-desc {
+      color: var(--subtext);
+      font-size: 0.97em;
+      font-weight: 400;
+      margin-left: 0.5em;
+    }
+    .student-dev-tags {
+      margin-left: 2.1em;
+      color: var(--accent);
+      font-size: 0.93em;
+      font-weight: 500;
+      margin-top: 0.1em;
+      letter-spacing: 0.01em;
+    }
+    @media (max-width: 600px) {
+      .student-dev-main { flex-direction: column; align-items: flex-start; gap: 0.2em; }
+      .student-dev-tags { margin-left: 0.2em; }
+    }
+    .top10-carousel {
+      display: flex;
+      flex-direction: row;
+      gap: 1em;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 0.5em;
+      width: 100%;
+      margin-bottom: 0.5em;
+    }
+    .top10-modal-card {
+      min-width: 260px;
+      max-width: 320px;
+      flex: 0 0 auto;
+      background: var(--card-bg);
+      border-radius: 1em;
+      box-shadow: 0 2px 12px 0 rgba(99,102,241,0.10);
+      padding: 1em 1em 0.8em 1em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4em;
+      border-left: 4px solid var(--accent);
+      transition: box-shadow 0.13s, transform 0.13s;
+      scroll-snap-align: start;
+    }
+    .top10-modal-card:hover { box-shadow: 0 4px 18px 0 rgba(99,102,241,0.13); transform: translateY(-2px) scale(1.012); }
+    .top10-modal-row { font-weight: 600; font-size: 1.05em; color: var(--accent); }
+    .top10-modal-desc { color: var(--subtext); font-size: 0.97em; }
+    .top10-modal-actions { margin-top: 0.3em; }
+    .top10-modal-actions .btn { font-size: 0.97em; padding: 0.35em 1em; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title">Stop Paying. Use These Free Tools Instead 💸</div>
+    <div class="subline">60+ tools to save your wallet. No trials. No BS.</div>
+    <div class="views" id="views">👀 Over 23,000 people saved money here</div>
+    <nav class="top-nav">
+      <button class="nav-btn" id="trending-nav-btn">🔥 Trending</button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="top10-section">
+      <div class="top10-title">🔥 Top 10 Popular Free Alternatives</div>
+      <div class="top10-list" id="top10-list"></div>
+    </section>
+    <div class="filters" id="filters"></div>
+    <div class="search-bar-wrap">
+      <input class="search-bar" id="search" type="text" placeholder="Search tools or tags…" autocomplete="off" />
+    </div>
+    <button class="copy-site-btn" id="copy-site">🔗 Copy Link to Site</button>
+    <div class="share-row">
+      <button class="share-btn" id="share-twitter">🐦 Twitter</button>
+      <button class="share-btn" id="share-telegram">✈️ Telegram</button>
+      <button class="share-btn" id="share-discord">💬 Discord</button>
+    </div>
+    <div class="email-optin">💌 Get free tools monthly → <a href="mailto:freetool@yourmail.com">Subscribe</a></div>
+    <section class="tools-grid" id="tools-grid"></section>
+    <!-- STUDENT SECTION -->
+    <!-- Remove student-section and its JS -->
+  </main>
+
+  <footer>
+    💡 Know a better free tool? <a class="footer-link" href="https://forms.gle/2Qw1kQw1kQw1kQw1A" target="_blank">Suggest one →</a>
+  </footer>
+
+  <!-- TRENDING MODAL -->
+  <div id="trending-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <button class="modal-close" id="close-modal-btn" title="Close">✕</button>
+      <button class="back-btn" id="back-main-btn-trending">← Go back to main site</button>
+      <div class="modal-title">🔥 Trending: Top 10 Popular Free Alternatives</div>
+      <div class="top10-carousel" id="top10-list-modal"></div>
+    </div>
+    </div>
+
+  <script>
+    // --- DATA ---
+    const tools = [
+      // Essay Writing / AI Writing
+      { paid: "Jasper AI", free: "Poe (Claude, ChatGPT)", desc: "AI writing with Claude/ChatGPT for free", link: "https://poe.com", tags: ["✍️ Essay", "🧠 AI", "📚 Student"] },
+      { paid: "Writesonic", free: "Smodin.io", desc: "AI essay writer + humanizer", link: "https://smodin.io", tags: ["✍️ Essay", "🧠 AI", "📚 Student"] },
+      { paid: "Copy.ai", free: "Rytr (free tier)", desc: "AI copywriting for free", link: "https://rytr.me", tags: ["✍️ Essay", "🧠 AI", "📚 Student"] },
+      { paid: "Grammarly Premium", free: "LanguageTool", desc: "Write better without paying", link: "https://languagetool.org", tags: ["✍️ Essay", "📚 Student", "🔥 Trending"] },
+      { paid: "Undetectable.ai", free: "Humanize AI Text", desc: "Bypass AI detectors with rewrites", link: "https://humanizeaitext.org", tags: ["✍️ Essay", "🫣 Humanizer", "📚 Student"] },
+      { paid: "Quillbot Premium", free: "Paraphraser.io", desc: "Paraphrasing to sound human", link: "https://paraphraser.io", tags: ["✍️ Essay", "🧠 AI", "📚 Student"] },
+      { paid: "Wordtune Plus", free: "Slick Write", desc: "Free grammar and style checker", link: "https://slickwrite.com", tags: ["✍️ Essay", "📚 Student"] },
+      // Math Solvers
+      { paid: "MathPapa Plus", free: "Mathway (free tier)", desc: "Step-by-step math help", link: "https://mathway.com", tags: ["🧮 Math", "📚 Student"] },
+      { paid: "Cymath Premium", free: "Symbolab", desc: "Solves and explains equations", link: "https://symbolab.com", tags: ["🧮 Math", "📚 Student"] },
+      { paid: "WolframAlpha Pro", free: "Photomath", desc: "Snap a pic, solve the math", link: "https://photomath.com", tags: ["🧮 Math", "📚 Student"] },
+      { paid: "Chegg Math Solver", free: "GeoGebra CAS Calculator", desc: "Free online CAS calculator", link: "https://www.geogebra.org/cas", tags: ["🧮 Math", "📚 Student"] },
+      // Study / Flashcards / Note Apps
+      { paid: "Quizlet Plus", free: "AnkiWeb", desc: "Free flashcards and spaced repetition", link: "https://ankiweb.net", tags: ["📖 Study", "📚 Student"] },
+      { paid: "Notion AI", free: "Obsidian + plugins", desc: "Powerful note-taking, open source", link: "https://obsidian.md", tags: ["📖 Study", "📚 Student"] },
+      { paid: "GrammarlyGO", free: "Hemingway Editor", desc: "Clarity and style for your writing", link: "https://hemingwayapp.com", tags: ["📖 Study", "📚 Student"] },
+      { paid: "Evernote Premium", free: "Joplin", desc: "Open-source note-taking app", link: "https://joplinapp.org", tags: ["📖 Study", "📚 Student"] },
+      { paid: "ScribeHow Pro", free: "Tango.us", desc: "Create step-by-step guides for free", link: "https://tango.us", tags: ["📖 Study", "📚 Student"] },
+      { paid: "Studocu", free: "SparkNotes", desc: "Free study guides and summaries", link: "https://sparknotes.com", tags: ["📖 Study", "📚 Student"] },
+      { paid: "Course Hero", free: "OpenStax / LibGen / r/textbookrequest", desc: "Free textbooks and resources", link: "https://openstax.org", tags: ["📖 Study", "📚 Student"] },
+      // Design Tools
+      { paid: "Canva Pro", free: "Desygner", desc: "Design anything fast, for free", link: "https://desygner.com", tags: ["🎨 Design", "🔥 Trending"] },
+      { paid: "Figma Pro", free: "Penpot", desc: "Open-source UI design tool", link: "https://penpot.app", tags: ["🎨 Design"] },
+      { paid: "Photoshop", free: "Photopea", desc: "Free Photoshop in your browser", link: "https://photopea.com", tags: ["🎨 Design", "🔥 Trending"] },
+      { paid: "Remove.bg Pro", free: "Cleanup.pictures", desc: "Remove backgrounds for free", link: "https://cleanup.pictures", tags: ["🎨 Design"] },
+      { paid: "Adobe Illustrator", free: "Vectorizer.AI", desc: "Convert images to vectors", link: "https://vectorizer.ai", tags: ["🎨 Design"] },
+      { paid: "InDesign", free: "Scribus", desc: "Open-source desktop publishing", link: "https://scribus.net", tags: ["🎨 Design"] },
+      // Video & Audio
+      { paid: "Descript", free: "Audacity + Whisper", desc: "Free audio editing and transcription", link: "https://www.audacityteam.org/", tags: ["🎬 Video", "🎵 Music"] },
+      { paid: "Adobe Premiere", free: "CapCut (desktop & web)", desc: "Free video editing suite", link: "https://www.capcut.com/", tags: ["🎬 Video"] },
+      { paid: "Veed.io", free: "Clipchamp", desc: "Online video editing made easy", link: "https://www.clipchamp.com/", tags: ["🎬 Video"] },
+      { paid: "Riverside.fm", free: "Zencastr (free tier)", desc: "Free podcast recording", link: "https://zencastr.com/", tags: ["🎬 Video"] },
+      { paid: "Rev.com", free: "MacWhisper / Whisper.cpp", desc: "Free AI-powered transcription", link: "https://macwhisper.com/", tags: ["🎬 Video"] },
+      { paid: "Otter.ai", free: "Notta.ai / Sonix.ai", desc: "Free meeting transcription", link: "https://www.notta.ai/", tags: ["🎬 Video"] },
+      // Citation / Academic / Research
+      { paid: "EasyBib Pro", free: "MyBib", desc: "Auto MLA/APA citations in one click", link: "https://mybib.com", tags: ["📚 Student", "📖 Study"] },
+      { paid: "Grammarly Plagiarism", free: "PlagiarismDetector.net", desc: "Free plagiarism checker", link: "https://plagiarismdetector.net", tags: ["📚 Student", "📖 Study"] },
+      { paid: "Turnitin", free: "PlagScan / Quetext (free tier)", desc: "Free plagiarism detection", link: "https://www.plagscan.com/", tags: ["📚 Student", "📖 Study"] },
+      { paid: "SciFinder", free: "SciHub (obviously), Semantic Scholar", desc: "Free academic paper search", link: "https://sci-hub.se/", tags: ["📚 Student", "📖 Study"] },
+      { paid: "Scopus", free: "Scite.ai", desc: "Smart paper search & citation analyzer", link: "https://scite.ai", tags: ["📚 Student", "📖 Study"] },
+      { paid: "RefWorks", free: "ZoteroBib", desc: "Simple, academic citation tool", link: "https://zbib.org", tags: ["📚 Student", "📖 Study"] },
+      // Dev & Coding Tools
+      { paid: "Github Copilot", free: "Codeium", desc: "AI coding assistant, 100% free", link: "https://codeium.com", tags: ["💻 Dev", "🧠 AI", "🔥 Trending"] },
+      { paid: "Replit Ghostwriter", free: "Replit", desc: "Online IDE with AI assist + instant projects", link: "https://replit.com", tags: ["💻 Dev", "📦 Sandbox"] },
+      { paid: "Cursor AI", free: "Cursor", desc: "ChatGPT-powered coding IDE, desktop app", link: "https://cursor.sh", tags: ["💻 Dev", "🧠 GPT"] },
+      { paid: "CodeGeeX Pro", free: "CodeGeeX", desc: "Chinese open-source Copilot alt (GPT-style)", link: "https://codegeex.cn", tags: ["💻 Dev", "🧠 AI", "🌍 Global"] },
+      { paid: "Kite Pro", free: "Kite (archived)", desc: "Local AI coder, legacy but still usable", link: "https://kite.com", tags: ["💻 Dev", "📡 Offline"] },
+      { paid: "PolyCoder Pro", free: "Polycoder Playground", desc: "AI code model trained on GitHub", link: "https://huggingface.co/spaces/NinedayWang/PolyCoder", tags: ["💻 Dev", "🧪 Experimental"] },
+      { paid: "CodePal Pro", free: "CodePal", desc: "AI code explainer and generator", link: "https://codepal.ai", tags: ["💻 Dev", "📘 Explain"] },
+      { paid: "Blackbox Pro", free: "Blackbox AI", desc: "Search across codebases with GPT", link: "https://blackbox.ai", tags: ["💻 Dev", "🔍 Search"] },
+      { paid: "Tabnine Pro", free: "Tabnine", desc: "Lightweight autocomplete plugin", link: "https://tabnine.com", tags: ["💻 Dev", "⚡ IDE"] },
+      { paid: "Google Colab Pro", free: "Google Colab", desc: "Python in the cloud, GPT/LLM ready", link: "https://colab.research.google.com", tags: ["💻 Dev", "🧠 Python", "📊 ML"] },
+      { paid: "Playcode Pro", free: "Playcode", desc: "JS playground with real-time preview", link: "https://playcode.io", tags: ["💻 Dev", "🎮 JS"] },
+      { paid: "Codesandbox Pro", free: "Codesandbox", desc: "React, Vue, and JS sandboxing", link: "https://codesandbox.io", tags: ["💻 Dev", "⚛️ React"] },
+      { paid: "JSFiddle Pro", free: "JSFiddle", desc: "Classic HTML/CSS/JS quick testing", link: "https://jsfiddle.net", tags: ["💻 Dev", "📜 Web"] },
+      // Add more tools as needed, with correct tags and '🔥 Trending' only where you want
+      // --- New tools from user ---
+      {"paid": "INK Editor Pro", "free": "ZenoChat", "desc": "AI writing assistant by TextCortex with templates", "link": "https://app.textcortex.com", "tags": ["✍️ Essay", "🧠 AI", "📚 Student"]},
+      {"paid": "AI Dungeon Premium", "free": "HoloAI Free", "desc": "AI story writing and creative text generation", "link": "https://holo.ai", "tags": ["✍️ Essay", "🎮 Fun", "🧠 AI"]},
+      {"paid": "Sudowrite", "free": "Sassbook AI", "desc": "AI creative writing generator and story assistant", "link": "https://sassbook.com", "tags": ["✍️ Essay", "🧠 AI", "📚 Student"]},
+      {"paid": "Scalenut", "free": "Neuroflash", "desc": "Free AI blog writer with multiple tone options", "link": "https://app.neuro-flash.com", "tags": ["✍️ Essay", "📚 Student"]},
+      {"paid": "LongShot AI", "free": "Yaara AI", "desc": "Free plan for structured writing assistance", "link": "https://www.yaara.ai", "tags": ["✍️ Essay", "📚 Student"]},
+      // --- More Math/Science ---
+      {"paid": "Maple", "free": "GeoGebra Graphing", "desc": "Graph, calculate, and explore math functions visually", "link": "https://www.geogebra.org/graphing", "tags": ["🧮 Math", "📚 Student"]},
+      {"paid": "Derive", "free": "Desmos Calculator", "desc": "Elegant graphing and step analysis for equations", "link": "https://www.desmos.com/calculator", "tags": ["🧮 Math", "📚 Student"]},
+      {"paid": "Chegg Study", "free": "Brainly", "desc": "Community-powered homework help", "link": "https://brainly.com", "tags": ["🧮 Math", "📚 Student"]},
+      {"paid": "Magoosh GRE", "free": "Khan Academy", "desc": "Free GRE/SAT lessons & exercises", "link": "https://www.khanacademy.org", "tags": ["📚 Student", "📖 Study", "🧠 AI"]},
+      // --- Flashcards, Notes, Planning ---
+      {"paid": "RemNote Pro", "free": "RemNote", "desc": "Smart spaced repetition system for students", "link": "https://www.remnote.io", "tags": ["📖 Study", "📚 Student"]},
+      {"paid": "Coggle Pro", "free": "Coggle (Free)", "desc": "Collaborative mind-mapping made easy", "link": "https://coggle.it", "tags": ["📖 Study", "🗂️ Planning"]},
+      {"paid": "Taskade Pro", "free": "Taskade", "desc": "Team-based notes, tasks and goals for free", "link": "https://www.taskade.com", "tags": ["📖 Study", "💻 Productivity"]},
+      {"paid": "Trello Premium", "free": "Trello", "desc": "Visual kanban board for managing tasks", "link": "https://trello.com", "tags": ["📖 Study", "💻 Productivity"]},
+      // --- More Dev Tools ---
+      {"paid": "Codex Pro", "free": "DeepCode", "desc": "AI-assisted secure code suggestions", "link": "https://www.deepcode.ai", "tags": ["💻 Dev", "🛡️ Secure"]},
+      {"paid": "AI Helper Bot", "free": "FlowGPT", "desc": "Free prompt base for developers", "link": "https://flowgpt.com", "tags": ["💻 Dev", "📘 Prompts"]},
+      {"paid": "Cogram", "free": "Continue.dev", "desc": "Open-source Copilot alternative", "link": "https://continue.dev", "tags": ["💻 Dev", "🧠 AI"]},
+      // --- Design / Visual Tools ---
+      {"paid": "Piktochart", "free": "Infogram", "desc": "Make stunning infographics without a subscription", "link": "https://infogram.com", "tags": ["🎨 Design", "📊 Charts"]},
+      {"paid": "Snappa", "free": "Pixelied", "desc": "Edit and create graphics for social posts", "link": "https://pixelied.com", "tags": ["🎨 Design", "🔥 Trending"]},
+      {"paid": "Lumen5", "free": "Pictory AI", "desc": "AI video summaries from articles", "link": "https://pictory.ai", "tags": ["🎬 Video", "🤖 AI"]},
+      // --- Transcription & Audio ---
+      {"paid": "Temi", "free": "Whisper Web UI", "desc": "Use Whisper locally in your browser", "link": "https://huggingface.co/spaces/openai/whisper", "tags": ["🎵 Music", "🎬 Video", "🧠 AI"]},
+      {"paid": "Descript Studio", "free": "Whispr AI", "desc": "Transcribe audio files with open models", "link": "https://whispr.ai", "tags": ["🎬 Video", "🎵 Audio"]},
+    ];
+    // --- END DATA ---
+
+    // --- CATEGORY FILTERS ---
+    const allTagsSet = new Set(["All", "🔥 Trending"]);
+    tools.forEach(t => t.tags.forEach(tag => allTagsSet.add(tag)));
+    const orderedTags = Array.from(allTagsSet);
+
+    // --- LIKE BUTTONS (localStorage) ---
+    function getLikes() {
+      try { return JSON.parse(localStorage.getItem('likedTools') || '{}'); } catch { return {}; }
+    }
+    function setLike(idx, val) {
+      const likes = getLikes();
+      likes[idx] = val;
+      localStorage.setItem('likedTools', JSON.stringify(likes));
+    }
+
+    // --- RENDER FILTERS ---
+    const filtersDiv = document.getElementById('filters');
+    let activeFilter = "All";
+    function renderFilters() {
+      filtersDiv.innerHTML = '';
+      orderedTags.forEach(tag => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-pill' + (activeFilter === tag ? ' active' : '');
+        btn.textContent = tag;
+        btn.onclick = () => {
+          activeFilter = tag;
+          renderFilters();
+          renderTools();
+        };
+        filtersDiv.appendChild(btn);
+      });
+    }
+
+    // --- SEARCH ---
+    const searchInput = document.getElementById('search');
+    let searchQuery = '';
+    searchInput.addEventListener('input', e => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      renderTools();
+    });
+
+    // --- URL PARAM PRE-FILTER ---
+    function getParam(name) {
+      const url = new URL(window.location);
+      return url.searchParams.get(name);
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      const q = getParam('q');
+      if (q) {
+        const tag = orderedTags.find(t => t.toLowerCase().includes(q.toLowerCase()));
+        if (tag) {
+          activeFilter = tag;
+          renderFilters();
+        }
+        searchInput.value = q;
+        searchQuery = q.toLowerCase();
+      }
+      renderFilters();
+      renderTools();
+    });
+
+    // --- RENDER TOOLS ---
+    const toolsGrid = document.getElementById('tools-grid');
+    function renderTools() {
+      const likes = getLikes();
+      let filtered = tools;
+      if (activeFilter && activeFilter !== "All") filtered = filtered.filter(t => t.tags.includes(activeFilter));
+      if (searchQuery) {
+        filtered = filtered.filter(t =>
+          t.paid.toLowerCase().includes(searchQuery) ||
+          t.free.toLowerCase().includes(searchQuery) ||
+          t.desc.toLowerCase().includes(searchQuery) ||
+          t.tags.some(tag => tag.toLowerCase().includes(searchQuery))
+        );
+      }
+      toolsGrid.innerHTML = '';
+      filtered.forEach((tool, idx) => {
+        const card = document.createElement('div');
+        card.className = 'tool-card';
+        // Paid/Free row
+        const row = document.createElement('div');
+        row.className = 'tool-row';
+        row.innerHTML = `<span class="tool-paid">💸 ${tool.paid}</span> → <span class="tool-free">✅ ${tool.free}</span>`;
+        card.appendChild(row);
+        // Desc
+        const desc = document.createElement('div');
+        desc.className = 'tool-desc';
+        desc.textContent = tool.desc;
+        card.appendChild(desc);
+        // Tags
+        const tags = document.createElement('div');
+        tags.className = 'tool-tags';
+        tool.tags.forEach(tag => {
+          const pill = document.createElement('span');
+          pill.className = 'tag-pill';
+          pill.textContent = tag;
+          tags.appendChild(pill);
+        });
+        card.appendChild(tags);
+        // Actions
+        const actions = document.createElement('div');
+        actions.className = 'tool-actions';
+        // Try it
+        const tryBtn = document.createElement('button');
+        tryBtn.className = 'btn';
+        tryBtn.textContent = 'Try it';
+        tryBtn.onclick = () => window.open(tool.link, '_blank');
+        actions.appendChild(tryBtn);
+        // Copy link
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'btn btn-secondary';
+        copyBtn.textContent = 'Copy Link';
+        copyBtn.onclick = () => {
+          navigator.clipboard.writeText(tool.link);
+          copyBtn.textContent = 'Copied!';
+          setTimeout(() => copyBtn.textContent = 'Copy Link', 1200);
+        };
+        actions.appendChild(copyBtn);
+        // Like
+        const likeBtn = document.createElement('button');
+        likeBtn.className = 'like-btn' + (likes[idx] ? ' liked' : '');
+        likeBtn.innerHTML = likes[idx] ? '❤️' : '🤍';
+        likeBtn.onclick = () => {
+          setLike(idx, !likes[idx]);
+          renderTools();
+        };
+        actions.appendChild(likeBtn);
+        card.appendChild(actions);
+        toolsGrid.appendChild(card);
+      });
+    }
+
+    // --- RENDER TOP 10 ---
+    function renderTop10() {
+      const top10 = tools.slice(0, 10); // Can be custom/hardcoded
+      const top10Div = document.getElementById('top10-list');
+      top10Div.innerHTML = '';
+      top10.forEach(tool => {
+        const card = document.createElement('div');
+        card.className = 'top10-card';
+        card.innerHTML = `<span style="color:#eab308;">💸</span> <b>${tool.paid}</b> → <span style="color:#22c55e;">✅</span> <b>${tool.free}</b>`;
+        top10Div.appendChild(card);
+      });
+    }
+
+    // --- COPY SITE LINK ---
+    document.getElementById('copy-site').onclick = () => {
+      navigator.clipboard.writeText(window.location.href.split('?')[0]);
+      const btn = document.getElementById('copy-site');
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = '🔗 Copy Link to Site', 1200);
+    };
+
+    // --- SHARE BUTTONS ---
+    function shareUrl(url) {
+      window.open(url, '_blank');
+    }
+    document.getElementById('share-twitter').onclick = () => {
+      const text = encodeURIComponent('Stop paying. Use these free tools instead! 💸 60+ alternatives:');
+      const url = encodeURIComponent(window.location.href.split('?')[0]);
+      shareUrl(`https://twitter.com/intent/tweet?text=${text}&url=${url}`);
+    };
+    document.getElementById('share-telegram').onclick = () => {
+      const text = encodeURIComponent('Stop paying. Use these free tools instead! 💸 60+ alternatives: ' + window.location.href.split('?')[0]);
+      shareUrl(`https://t.me/share/url?url=${text}`);
+    };
+    document.getElementById('share-discord').onclick = () => {
+      navigator.clipboard.writeText('Stop paying. Use these free tools instead! 💸 60+ alternatives: ' + window.location.href.split('?')[0]);
+      alert('Copied share message to clipboard! Paste in Discord.');
+    };
+    // --- TRENDING MODAL ---
+    const trendingNavBtn = document.getElementById('trending-nav-btn');
+    const trendingModal = document.getElementById('trending-modal');
+    const backMainBtnTrending = document.getElementById('back-main-btn-trending');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const top10ListModal = document.getElementById('top10-list-modal');
+    trendingNavBtn.onclick = function() {
+      trendingModal.style.display = 'flex';
+      renderTop10Modal();
+    };
+    backMainBtnTrending.onclick = function() {
+      trendingModal.style.display = 'none';
+    };
+    closeModalBtn.onclick = function() {
+      trendingModal.style.display = 'none';
+    };
+    function renderTop10Modal() {
+      const trendingTools = tools.filter(t => t.tags.includes('🔥 Trending'));
+      top10ListModal.innerHTML = '';
+      trendingTools.forEach(tool => {
+        const card = document.createElement('div');
+        card.className = 'top10-modal-card';
+        card.innerHTML = `
+          <div class="top10-modal-row"><span style="color:#eab308;">💸</span> <b>${tool.paid}</b> → <span style="color:#22c55e;">✅</span> <b>${tool.free}</b></div>
+          <div class="top10-modal-desc">${tool.desc}</div>
+          <div class="top10-modal-actions"><button class="btn" onclick="window.open('${tool.link}','_blank')">Try it</button></div>
+        `;
+        top10ListModal.appendChild(card);
+      });
+    }
+    // Remove always-on Top 10 section from main
+    document.querySelector('.top10-section').style.display = 'none';
+  </script>
+</body>
+</html> 
